@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Running Course Recommender</title>
+    <title>러닝 코스 추천기</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Running Course Recommender!</h1>
-    <p>Future home of your map and course recommendations.</p>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>러닝 코스 추천</h1>
+                <p>원하는 거리와 함께 현재 위치 기반 코스를 찾아보세요!</p>
+            </div>
+        </div>
+
+        <!-- Input area - will be expanded in the next step -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="distanceInput">희망 거리 (km):</label>
+                <input type="number" class="form-control" id="distanceInput" placeholder="예: 5">
+            </div>
+            <div class="col-md-6 align-self-end">
+                <button id="searchBtn" class="btn btn-primary">코스 검색</button>
+            </div>
+        </div>
+
+        <!-- Map Area -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map"></div>
+                <div id="statusMessage" class="mt-2 alert" role="alert" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (Popper.js, jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
